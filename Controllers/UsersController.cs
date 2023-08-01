@@ -51,29 +51,36 @@ namespace Hw4.Controllers
 
         }
 
-   
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var errors = ModelState.SelectMany(x => x.Value.Errors.Select(e => e.ErrorMessage)).ToList();
-                return BadRequest(new { Errors = errors });
-            }
+                var user = await _userManager.FindByEmailAsync(model.EmailOrUsername);
 
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
-
-            if (result.Succeeded)
-            {
-                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    user = await _userManager.FindByNameAsync(model.EmailOrUsername);
+                }
+                
                 if (user != null)
                 {
-                    return Ok(new { Message = "Login successful", User = user });
+                    var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                    if (result.Succeeded)
+                    {
+                        
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return Ok();
+                    }
                 }
+
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             }
 
-            return Unauthorized(new { Message = "Invalid login attempt" });
+            return BadRequest(ModelState);
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
@@ -84,9 +91,9 @@ namespace Hw4.Controllers
         }
 
         [HttpPost("block/{id}")]
-        public async Task<IActionResult> BlockUser(int id)
+        public async Task<IActionResult> BlockUser(string id)
         {
-            var user = await _userManager.FindByIdAsync(id.ToString());
+            var user = await _userManager.FindByIdAsync(id);
 
             if (user == null) 
             {
@@ -107,9 +114,9 @@ namespace Hw4.Controllers
         }
 
         [HttpPost("unblock/{id}")]
-        public async Task<IActionResult> UnblockUser(int id)
+        public async Task<IActionResult> UnblockUser(string id)
         {
-            var user = await _userManager.FindByIdAsync(id.ToString());
+            var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {
@@ -129,9 +136,9 @@ namespace Hw4.Controllers
         }
 
         [HttpPost("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(string id)
         {
-            var user = await _userManager.FindByIdAsync(id.ToString());
+            var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {

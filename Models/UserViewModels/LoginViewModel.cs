@@ -6,7 +6,7 @@ namespace Hw4.Models.UserViewModels
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string EmailOrUsername { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
