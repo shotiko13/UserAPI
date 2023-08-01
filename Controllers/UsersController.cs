@@ -3,6 +3,7 @@ using Hw4.Models;
 using Hw4.Models.UserViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hw4.Controllers
 {
@@ -34,13 +35,21 @@ namespace Hw4.Controllers
             {
                 UserName = model.Name,
                 Email = model.EmailAddress,
-                RegistrationTime = DateTime.Now
+                RegistrationTime = DateTime.Now,
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
+                user.Status = UserStatus.Active;
+                var updateResult = await _userManager.UpdateAsync(user);
+                
+                if (!updateResult.Succeeded)
+                {
+                    var identityErrors = updateResult.Errors.Select(e => e.Description).ToList();
+                    return BadRequest(new { Errors = identityErrors });
+                }
                 return Ok(new { Message = "User created successfully", UserId = user.Id });
             }
             else
@@ -62,14 +71,24 @@ namespace Hw4.Controllers
                 {
                     user = await _userManager.FindByNameAsync(model.EmailOrUsername);
                 }
-                
+
                 if (user != null)
                 {
                     var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
                     if (result.Succeeded)
                     {
+                        user.LastLoginTime = DateTime.Now;
                         
+                        var updateResult = await _userManager.UpdateAsync(user);
+
+                        if (!updateResult.Succeeded)
+                        {
+                            var identityErrors = updateResult.Errors.Select(e => e.Description).ToList();
+                            return BadRequest(new { Errors = identityErrors });
+                        }
+
                         await _signInManager.SignInAsync(user, isPersistent: false);
+
                         return Ok();
                     }
                 }
@@ -81,13 +100,44 @@ namespace Hw4.Controllers
         }
 
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null) 
+            {
+                return NotFound();
+            }
+            var userDetailViewModel = new UserDetailViewModel
+            {
+                Id = user.Id,
+                Name = user.UserName,
+                Email = user.Email,
+                RegistrationTime = user.RegistrationTime,
+                LastLoginTime = user.LastLoginTime,
+                Status = user.Status
+            };
+
+            return Ok(userDetailViewModel);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = _userManager.Users;
+            var users = await _userManager.Users.ToListAsync();
 
-            return Ok(users);
+            var userDetailViewModels = users.Select(user => new UserDetailViewModel
+            {
+                Id = user.Id,
+                Name = user.UserName,
+                Email = user.Email,
+                LastLoginTime = user.LastLoginTime,
+                RegistrationTime = user.RegistrationTime,
+                Status = user.Status,
+            }).ToList();
+
+            return Ok(userDetailViewModels);
         }
 
         [HttpPost("block/{id}")]
@@ -135,7 +185,7 @@ namespace Hw4.Controllers
             return BadRequest(result.Errors);
         }
 
-        [HttpPost("{id}")]
+        [HttpPost("delete/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);

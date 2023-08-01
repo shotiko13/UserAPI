@@ -12,6 +12,15 @@ namespace Hw4.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(e => e.Status)
+                .HasConversion<int>();
+        }
+
         public DbSet<ApplicationUser> Users { get; set; }
     }
 }

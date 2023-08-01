@@ -7,8 +7,8 @@ namespace Hw4.Models
 {
     public enum UserStatus
     {
-        Active,
-        Blocked,
+        Active = 1,
+        Blocked = 0,
     }
     public class ApplicationUser : IdentityUser
     {
