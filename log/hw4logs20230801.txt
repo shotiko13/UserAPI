@@ -1,0 +1,138 @@
+2023-08-01 01:30:33.859 +04:00 [INF] User profile is available. Using 'C:\Users\Shotiko\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-01 01:30:34.315 +04:00 [INF] Now listening on: https://localhost:7283
+2023-08-01 01:30:34.315 +04:00 [INF] Now listening on: http://localhost:5055
+2023-08-01 01:30:34.342 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-01 01:30:34.344 +04:00 [INF] Hosting environment: Development
+2023-08-01 01:30:34.344 +04:00 [INF] Content root path: C:\Users\Shotiko\Desktop\Ihomeworks\hw4\Hw4\
+2023-08-01 01:30:35.264 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/ - -
+2023-08-01 01:30:39.465 +04:00 [INF] No SPA development server running at https://localhost:44449 found.
+2023-08-01 01:30:39.643 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:30:39.658 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/ - - - 200 - text/html 4400.4182ms
+2023-08-01 01:30:44.977 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/swagger/index.html - -
+2023-08-01 01:30:45.275 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/_framework/aspnetcore-browser-refresh.js - -
+2023-08-01 01:30:45.279 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 4.1876ms
+2023-08-01 01:30:45.280 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/swagger/index.html - - - 200 - text/html;charset=utf-8 302.8501ms
+2023-08-01 01:30:45.365 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/_vs/browserLink - -
+2023-08-01 01:30:45.416 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.6746ms
+2023-08-01 01:30:45.657 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/swagger/v1/swagger.json - -
+2023-08-01 01:30:45.740 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Users/login" for actions - Hw4.Controllers.UsersController.Login (Hw4),Hw4.Controllers.UsersController.Login (Hw4). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-08-01 01:30:45.775 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 117.3277ms
+2023-08-01 01:30:57.054 +04:00 [INF] SPA development server running at 'https://localhost:44449'
+2023-08-01 01:31:14.263 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:44449/weatherforecast - -
+2023-08-01 01:31:14.343 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:44449/weatherforecast - - - 404 0 - 79.3995ms
+2023-08-01 01:35:50.076 +04:00 [INF] User profile is available. Using 'C:\Users\Shotiko\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-01 01:35:50.605 +04:00 [INF] Now listening on: https://localhost:7283
+2023-08-01 01:35:50.606 +04:00 [INF] Now listening on: http://localhost:5055
+2023-08-01 01:35:50.610 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-01 01:35:50.612 +04:00 [INF] Hosting environment: Development
+2023-08-01 01:35:50.612 +04:00 [INF] Content root path: C:\Users\Shotiko\Desktop\Ihomeworks\hw4\Hw4\
+2023-08-01 01:35:51.491 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/ - -
+2023-08-01 01:35:55.708 +04:00 [INF] No SPA development server running at https://localhost:44449 found.
+2023-08-01 01:35:55.947 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:35:55.974 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/ - - - 200 - text/html 4486.1327ms
+2023-08-01 01:35:59.681 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/ - -
+2023-08-01 01:36:03.759 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:36:03.759 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/ - - - 200 - text/html 4077.9600ms
+2023-08-01 01:36:06.891 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7283/ - -
+2023-08-01 01:36:07.717 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:36:07.717 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7283/ - - - 200 - text/html 826.5701ms
+2023-08-01 01:36:10.717 +04:00 [INF] SPA development server running at 'https://localhost:44449'
+2023-08-01 01:36:42.753 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger - -
+2023-08-01 01:36:42.898 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger - - - 301 0 - 145.1259ms
+2023-08-01 01:36:42.901 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.html - -
+2023-08-01 01:36:43.293 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-bundle.js - -
+2023-08-01 01:36:43.295 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-standalone-preset.js - -
+2023-08-01 01:36:43.313 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui.css - -
+2023-08-01 01:36:43.331 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.html - - - 200 - text/html;charset=utf-8 429.8988ms
+2023-08-01 01:36:43.388 +04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-08-01 01:36:43.388 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-08-01 01:36:43.388 +04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-08-01 01:36:43.388 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui.css - - - 200 144929 text/css 82.5847ms
+2023-08-01 01:36:43.388 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 95.0763ms
+2023-08-01 01:36:43.388 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 95.1004ms
+2023-08-01 01:36:43.619 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/_framework/aspnetcore-browser-refresh.js - -
+2023-08-01 01:36:43.620 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/_vs/browserLink - -
+2023-08-01 01:36:43.624 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 4.6964ms
+2023-08-01 01:36:43.661 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.7966ms
+2023-08-01 01:36:43.841 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/favicon-32x32.png - -
+2023-08-01 01:36:43.842 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-08-01 01:36:43.842 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/favicon-32x32.png - - - 200 628 image/png 0.6500ms
+2023-08-01 01:36:44.090 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - -
+2023-08-01 01:36:44.232 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Users/login" for actions - Hw4.Controllers.UsersController.Login (Hw4),Hw4.Controllers.UsersController.Login (Hw4). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-08-01 01:36:44.278 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 188.0859ms
+2023-08-01 01:36:51.826 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/ - -
+2023-08-01 01:36:51.827 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/ - - - 301 0 - 1.1109ms
+2023-08-01 01:36:51.834 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/index.html - -
+2023-08-01 01:36:51.845 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/index.html - - - 200 - text/html;charset=utf-8 10.9364ms
+2023-08-01 01:36:51.875 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/_framework/aspnetcore-browser-refresh.js - -
+2023-08-01 01:36:51.875 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/_vs/browserLink - -
+2023-08-01 01:36:51.875 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 0.5078ms
+2023-08-01 01:36:51.900 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.0685ms
+2023-08-01 01:36:52.200 +04:00 [INF] Request starting HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - -
+2023-08-01 01:36:52.204 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Users/login" for actions - Hw4.Controllers.UsersController.Login (Hw4),Hw4.Controllers.UsersController.Login (Hw4). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-08-01 01:36:52.205 +04:00 [INF] Request finished HTTP/1.1 GET http://localhost:5055/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 5.5768ms
+2023-08-01 01:38:33.490 +04:00 [INF] User profile is available. Using 'C:\Users\Shotiko\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-01 01:38:33.862 +04:00 [INF] Now listening on: https://localhost:5055
+2023-08-01 01:38:33.868 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-01 01:38:33.869 +04:00 [INF] Hosting environment: Development
+2023-08-01 01:38:33.869 +04:00 [INF] Content root path: C:\Users\Shotiko\Desktop\Ihomeworks\hw4\Hw4\
+2023-08-01 01:39:55.328 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/ - -
+2023-08-01 01:39:59.548 +04:00 [INF] No SPA development server running at https://localhost:44449 found.
+2023-08-01 01:39:59.663 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:39:59.675 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/ - - - 200 - text/html 4385.5663ms
+2023-08-01 01:40:00.134 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/favicon.ico - -
+2023-08-01 01:40:00.208 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/favicon.ico - - - 404 0 - 73.6059ms
+2023-08-01 01:40:03.125 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/ - -
+2023-08-01 01:40:07.171 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:40:07.171 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/ - - - 200 - text/html 4045.7854ms
+2023-08-01 01:40:10.303 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/ - -
+2023-08-01 01:40:11.991 +04:00 [INF] SPA proxy is not ready. Returning temporary landing page.
+2023-08-01 01:40:11.992 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/ - - - 200 - text/html 1689.1061ms
+2023-08-01 01:40:11.997 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger - -
+2023-08-01 01:40:11.998 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger - - - 301 0 - 1.4785ms
+2023-08-01 01:40:12.003 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/index.html - -
+2023-08-01 01:40:12.100 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/index.html - - - 200 - text/html;charset=utf-8 96.6598ms
+2023-08-01 01:40:12.120 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/swagger-ui-bundle.js - -
+2023-08-01 01:40:12.121 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/swagger-ui.css - -
+2023-08-01 01:40:12.121 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/swagger-ui-standalone-preset.js - -
+2023-08-01 01:40:12.150 +04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-08-01 01:40:12.150 +04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-08-01 01:40:12.151 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-08-01 01:40:12.151 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 30.1268ms
+2023-08-01 01:40:12.151 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/swagger-ui.css - - - 200 144929 text/css 30.5103ms
+2023-08-01 01:40:12.151 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 30.6492ms
+2023-08-01 01:40:12.434 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/favicon-32x32.png - -
+2023-08-01 01:40:12.435 +04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-08-01 01:40:12.435 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/favicon-32x32.png - - - 200 628 image/png 0.5334ms
+2023-08-01 01:40:12.536 +04:00 [INF] Request starting HTTP/2 GET https://localhost:5055/swagger/v1/swagger.json - -
+2023-08-01 01:40:12.619 +04:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Users/login" for actions - Hw4.Controllers.UsersController.Login (Hw4),Hw4.Controllers.UsersController.Login (Hw4). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-08-01 01:40:12.638 +04:00 [INF] Request finished HTTP/2 GET https://localhost:5055/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 102.2474ms
+2023-08-01 01:40:14.172 +04:00 [INF] SPA development server running at 'https://localhost:44449'
