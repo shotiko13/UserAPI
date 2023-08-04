@@ -44,7 +44,7 @@ namespace Hw4.Controllers
             {
                 user.Status = UserStatus.Active;
                 var updateResult = await _userManager.UpdateAsync(user);
-                
+
                 if (!updateResult.Succeeded)
                 {
                     var identityErrors = updateResult.Errors.Select(e => e.Description).ToList();
@@ -63,38 +63,47 @@ namespace Hw4.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(model.EmailOrUsername);
-
-                if (user == null)
-                {
-                    user = await _userManager.FindByNameAsync(model.EmailOrUsername);
-                }
-
-                if (user != null)
-                {
-                    var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-                    if (result.Succeeded)
-                    {
-                        user.LastLoginTime = DateTime.Now;
-                        
-                        var updateResult = await _userManager.UpdateAsync(user);
-
-                        if (!updateResult.Succeeded)
-                        {
-                            var identityErrors = updateResult.Errors.Select(e => e.Description).ToList();
-                            return BadRequest(new { Errors = identityErrors });
-                        }
-
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-
-                        return Ok();
-                    }
-                }
-
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return BadRequest(ModelState);
             }
+            ApplicationUser user;
+            if (model.EmailOrUsername.Contains('@'))
+            {
+                user = await _userManager.FindByEmailAsync(model.EmailOrUsername);
+            }
+            else
+            {
+                user = await _userManager.FindByNameAsync(model.EmailOrUsername);
+            }
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Username or password is incorrect" });
+            }
+
+            if (user != null)
+            {
+                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                if (result.Succeeded)
+                {
+                    user.LastLoginTime = DateTime.Now;
+
+                    var updateResult = await _userManager.UpdateAsync(user);
+
+                    if (!updateResult.Succeeded)
+                    {
+                        var identityErrors = updateResult.Errors.Select(e => e.Description).ToList();
+                        return BadRequest(new { Errors = identityErrors });
+                    }
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    return Ok();
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 
             return BadRequest(ModelState);
         }
@@ -105,7 +114,7 @@ namespace Hw4.Controllers
         {
             var user = await _userManager.FindByIdAsync(id);
 
-            if (user == null) 
+            if (user == null)
             {
                 return NotFound();
             }
@@ -145,7 +154,7 @@ namespace Hw4.Controllers
         {
             var user = await _userManager.FindByIdAsync(id);
 
-            if (user == null) 
+            if (user == null)
             {
                 return NotFound();
             }
