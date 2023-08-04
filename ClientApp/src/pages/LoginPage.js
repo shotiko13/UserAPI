@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button, Alert, Row, Col } from 'react-bootstrap';
@@ -9,22 +9,28 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const url = 'https://localhost:5057/api/Users/login';
-
         try {
-            await axios.post(url, {
-                emailOrUsername: emailOrUsername,
-                password: password
-            });
-
-            navigate('/dashboard');
-        } catch (error) {
-            setError('An error occured during login.')
-        }
+          const response = await axios.post(url, {
+              emailOrUsername: emailOrUsername,
+              password: password
+          });
+          localStorage.setItem("token", response.data.token);
+          navigate('/userManagement');
+      } catch (error) {
+          if (error.response) {
+              if (error.response.status === 403) {
+                  setError('Your account is blocked');
+              } else if (error.response.status === 400) {
+                  setError('Username or password is incorrect');
+              }
+          } else {
+              setError('An error occured during login.')
+          }
+      }
+      
     }; 
 
     return (

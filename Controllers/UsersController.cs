@@ -82,6 +82,11 @@ namespace Hw4.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
 
+            if (user.Status == UserStatus.Blocked)
+            {
+                return StatusCode(403, new { message = "You are blocked" });
+            }
+
             if (user != null)
             {
                 var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
