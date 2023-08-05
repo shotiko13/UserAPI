@@ -27,21 +27,17 @@ const UserManagementPage = () => {
     }, []);
       
     const handleUserChange = (userId, isSelected) => {
-        console.log('Before modification, selectedUsers:', [...selectedUsers]);
-        console.log(`Changing selection state for user ${userId} to ${isSelected}`);
         const newSelectedUsers = new Set(selectedUsers);
-        if (isSelected) {
+        if (isSelected) 
             newSelectedUsers.add(userId);
-        } else {
+        else 
             newSelectedUsers.delete(userId);
-        }
-        console.log('After modification, newSelectedUsers:', [...newSelectedUsers]);
         setSelectedUsers(new Set(newSelectedUsers));
     }
     
 
     const handleSelectAll = () => {
-        const allUserIds = users.map(user => user.id);
+        const allUserIds = new Set(users.map(user => user.id));
         setSelectedUsers(allUserIds);
     }
 
@@ -58,48 +54,42 @@ const UserManagementPage = () => {
         }
     } 
 
-    const handleBlock = async (userId) => {
+    const handleOperation = async (userId, operation) => {
         try {
-            const response = await axios.post(`https://localhost:5057/api/Users/block/${userId}`);
+            const response = await axios.post(`https://localhost:5057/api/Users/${operation}/${userId}`);
             handleStatus(response);
         } catch (error) {
-            console.error('An error occurred while blocking the user');
+            console.error(`An error occured while ${operation}ing the user`);
         }
+    }
+
+    const handleBlock = async (userId) => {
+        handleOperation(userId, 'block');
     }
 
     const handleUnblock = async (userId) => {
-        try {
-            const response = await axios.post(`https://localhost:5057/api/Users/unblock/${userId}`)
-            handleStatus(response);
-        } catch (error) {
-            console.error('An error occured while unblocking the user');
-        }
+        handleOperation(userId, 'unblock');
     }
 
     const handleDelete = async (userId) => {
-        try {
-            const response = await axios.post(`https://localhost:5057/api/Users/delete/${userId}`)
-            handleStatus(response);
-        } catch (error) {
-            console.error('An error occured while deleting the user');
-        }
+        handleOperation(userId, 'delete');
     }
 
     const handleBlockSelected = () => {
-        selectedUsers.forEach(user => {
-            handleBlock(user.id);
+        selectedUsers.forEach(userId => {
+            handleBlock(userId);
         });
     }
     
     const handleUnblockSelected = () => {
-        selectedUsers.forEach(user => {
-            handleUnblock(user.id);
+        selectedUsers.forEach(userId => {
+            handleUnblock(userId);
         });
     }
     
     const handleDeleteSelected = () => {
-        selectedUsers.forEach(user => {
-            handleDelete(user.id);
+        selectedUsers.forEach(userId => {
+            handleDelete(userId);
         });
     }
 
