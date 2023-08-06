@@ -1,6 +1,5 @@
 using Hw4.Data;
 using Hw4.Models;
-using Hw4.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -61,8 +60,6 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-
-app.UseMiddleware<CheckBlockedMiddleware>();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("AllowAll");
