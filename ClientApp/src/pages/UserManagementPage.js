@@ -10,7 +10,7 @@ const UserManagementPage = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('https://localhost:5057/api/Users');
+            const response = await axios.get('https://hw4Shota.somee/api/Users');
             if (response.status === 200) {
                 setUsers(response.data);
             } else {
@@ -56,7 +56,7 @@ const UserManagementPage = () => {
 
     const handleOperation = async (userId, operation) => {
         try {
-            const response = await axios.post(`https://localhost:5057/api/Users/${operation}/${userId}`);
+            const response = await axios.post(`https://hw4Shota.somee/api/Users/${operation}/${userId}`);
             handleStatus(response);
         } catch (error) {
             console.error(`An error occured while ${operation}ing the user`);

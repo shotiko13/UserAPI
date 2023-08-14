@@ -22,7 +22,7 @@ const RegisterPage = () => {
 
     setError(null); 
 
-    const url = 'https://localhost:5057/api/Users/register';
+    const url = 'https://hw4Shota.somee/api/Users/register';
 
     try {
       await axios.post(url, {
