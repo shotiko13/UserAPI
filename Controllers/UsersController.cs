@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Hw4.Data;
 using Hw4.Models;
 using Hw4.Models.UserViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using ModelStateDictionary = Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDic
 
 namespace Hw4.Controllers
 {
+    [EnableCors("AllowAll")]
     [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -159,7 +161,7 @@ namespace Hw4.Controllers
             };
         }
 
-
+        
         [Microsoft.AspNetCore.Mvc.HttpPost("block/{id}")]
         public async Task<IActionResult> BlockUser(string id)
         {

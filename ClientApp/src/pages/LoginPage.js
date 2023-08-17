@@ -11,7 +11,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const url = 'https://hw4Shota.somee/api/Users/login';
+        const url = 'https://hw4Shota.somee.com/api/Users/login';
         try {
           const response = await axios.post(url, {
               emailOrUsername: emailOrUsername,
